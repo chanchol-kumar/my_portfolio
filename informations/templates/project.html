@@ -1,5 +1,30 @@
 {% extends "base.html" %}
-{% block content %}
-<h1>This is Project sections</h1>
 
+{% block content %}
+    <div class="container mt-5">
+        <div class="header;" style="width: 80%; margin: auto; text-align: center;">
+            <h1>My Projects </h1>
+            <hr/>
+        </div>
+        <div class="row">
+            {% for project in project_posts %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 text-center">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }} Image">
+                        {% else %}
+                            <!-- Add a placeholder image or leave it empty -->
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title font-weight-bold">{{ project.title }}</h5>
+                            <p class="card-text">{{ project.descriptions }}</p>
+                            {% if project.link_text %}
+                                <a href="{{ project.link_text }}" class="btn btn-primary">Go somewhere</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

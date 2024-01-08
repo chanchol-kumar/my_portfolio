@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from informations.forms import FeedbackForm
-from informations.models import FeedbackModel
+from informations.models import FeedbackModel,BlogModel,SkillModel,ProjectModel
 
 
 def home(request):
@@ -10,16 +10,19 @@ def about(request):
     return render(request,'about.html');
 
 def blog(request):
-    return render(request, 'blog.html')
+    blog_posts = BlogModel.objects.all()
+    return render(request, 'blog.html', {'blog_posts': blog_posts})
+
+def skill(request):
+    skill_posts = SkillModel.objects.all()
+    return render(request, 'skills.html', {'skill_posts': skill_posts})
 
 def project(request):
-    return render(request, 'project.html')
+    project_posts = ProjectModel.objects.all()
+    return render(request, 'project.html', {'project_posts': project_posts})
 
 def contact(request):
     return render(request, 'contact.html')
-
-def skill(request):
-    return render(request, 'skill.html')
 
 
 def feedback(request):

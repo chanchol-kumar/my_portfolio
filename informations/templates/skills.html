@@ -1,5 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>This is skill sections</h1>
-
+    <div class="width:75%; margin:auto;">
+        <div class="header;" style="width: 80%; margin: auto; text-align: center;">
+            <h1>My Skills</h1>
+            <hr/>
+        </div>
+        <div class="container" >
+            <div class="row">
+                {% for skill in skill_posts %}
+                    <div class="col-md-3">
+                        <div class="skill-box">
+                            <div class="skill-title">
+                                <div class="img">
+                                    <img src="#" alt="{{ skill.name }} Image" style="max-width: 100px; max-height: 100px;">
+                                    {% comment %} <img src="{{ skill.icon.url }}" alt="{{ skill.name }} Image" style="max-width: 100px; max-height: 100px;"> {% endcomment %}
+                                </div>
+                                <h3>{{ skill.name }}</h3>
+                            </div>
+                            <p>{{ skill.descriptions }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
