@@ -1,11 +1,50 @@
 {% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-    <div style="width: 50%; margin: auto;">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-xl-8 text-center">
+      <h3 class="mb-4">Testimonials</h3>
+      <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet
+        numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum
+        quisquam eum porro a pariatur veniam.
+      </p>
+    </div>
+  </div>
+
+  <div class="row text-center">
+    {% for i in data %}
+      <div class="col-md-4 mb-4">
+        <div class="d-flex justify-content-center mb-4">
+          <img src="#" class="rounded-circle shadow-1-strong" width="150" height="150" />
+        </div>
+        <h6 class="text-primary mb-3">{{ i.name }}</h6>
+        <p><b>{{ i.email }}</b></p>
+        <p class="px-xl-3">
+          <i class="fas fa-quote-left pe-2"></i>{{ i.comment }}
+        </p>
+        <ul class="list-unstyled d-flex justify-content-center mb-0">
+          {% for star in i.rating %}
+            <li>
+              <i class="fas fa-star fa-sm text-warning"></i>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+  </div>
+
+  <hr />
+
+<section>
+  <div style="width: 50%; margin: auto;">
+    <h1 style="text-align: center;">Feedback Form</h1>
     <form method="POST">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-primary" type="submit">Submit</button>
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button class="btn btn-primary" type="submit">Submit Feedback</button>
     </form>
-</div>
+  </div>
+</section>
+
 {% endblock %}

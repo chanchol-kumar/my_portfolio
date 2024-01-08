@@ -1,5 +1,5 @@
 from django.contrib import admin
-from informations.models import FeedbackModel,BlogModel,ProjectModel,UploadCV,ContactModel,SkillModel
+from informations.models import FeedbackModel,BlogModel,ProjectModel,UserContactModel,UploadCV,SkillModel
 
 class FeedbackModelAdmin(admin.ModelAdmin):
     list_display = ('name','email','feedback','rating')
@@ -10,4 +10,10 @@ admin.site.register(BlogModel)
 admin.site.register(SkillModel)    
 admin.site.register(ProjectModel)    
 admin.site.register(UploadCV)    
-admin.site.register(ContactModel)    
+
+
+# class UserContactModelAdmin(admin.ModelAdmin):
+#     list_display = ('name','email','subject')
+    
+# admin.site.register(UserContactModel, UserContactModelAdmin)
+

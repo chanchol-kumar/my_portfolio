@@ -1,71 +1,11 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_tags %}
 {% block content %}
-    <div style="width: 75%; margin: auto;">
-        <style>
-            .testimonial-card .card-up {
-                height: 120px;
-                overflow: hidden;
-                border-top-left-radius: 0.25rem;
-                border-top-right-radius: 0.25rem;
-            }
-
-            .testimonial-card .avatar {
-                width: 110px;
-                margin-top: -60px;
-                overflow: hidden;
-                border: 3px solid #fff;
-                border-radius: 50%;
-            }
-        </style>
-
-        <section>
-            <div style="width: 100%; margin: auto;">
-                <div class="col-md-10 col-xl-8 text-center">
-                    <h3 class="mb-4">Testimonials</h3>
-                    <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-                        Working with you was an absolute pleasure.
-                        Their expertise, creativity, and attention to detail shine through in every project.
-                        From concept to execution, [Your Name] goes above and beyond to ensure exceptional results.
-                        Collaborating with them is not just a service; it's an experience that leaves everyone involved impressed.
-                        If you're looking for a dedicated professional who delivers outstanding work for all,
-                        you are the perfect choice.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row text-center d-flex align-items-stretch">
-                {% if data %}
-                    {% for i in data %}
-                        <div class="col-md-4 mb-4 mb-md-0 d-flex align-items-stretch" style="margin-bottom: 10px;">
-                            <div class="card testimonial-card">
-                                <div class="card-up" style="background-color: #7a81a8;"></div>
-                                <div class="avatar mx-auto bg-white">
-                                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp" class="rounded-circle img-fluid" />
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="mb-4">Name: {{ i.name }}</h4>
-                                    <hr />
-                                    <p class="dark-grey-text mt-4">
-                                        <i class="fas fa-quote-left pe-2"></i>{{ i.feedback }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {% if forloop.counter|divisibleby:3 and not forloop.last %}
-                            </div><div class="row text-center d-flex align-items-stretch">
-                        {% endif %}
-                    {% endfor %}
-                {% else %}
-                    <p>No feedback available.</p>
-                {% endif %}
-            </div>
-            <div class="row justify-content-center mt-4">
-                <a href="{% url 'feedback' %}">
-                    <button class="btn btn-outline-success" type="button">Inspire me.</button>
-                </a>
-            </div>
-        </section>
-
-    </div>
+    <div style="width: 50%; margin: auto;">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
 {% endblock %}

@@ -9,9 +9,8 @@
   </head>
   <body>
       <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
-      {% comment %} <div class="container"> {% endcomment %}
         <div class="container-fluid">
-          <a class="navbar-brand" href="{% url 'homepage' %}">CK</a>
+          <a class="navbar-brand" href="{% url 'about' %}">CK</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
@@ -19,35 +18,45 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'feedback_list' %}">Feedback</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'feedback' %}">Feedback</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Blog</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'blog' %}">Blogs</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'skill' %}">Skill</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'skill' %}">Skills</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Conatct</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'contact' %}">Contacts</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{% url 'project' %}">Project</a>
+                    <a class="nav-link active" aria-current="page" href="{% url 'project' %}">Projects</a>
                 </li>
               </ul>
-              {% comment %} <form class="d-flex grid gap-2">
-                  <button class="btn btn-outline-success " type="submit">Login</button>
-                  <button class="btn btn-outline-danger " type="submit">Logout</button>
-              </form> {% endcomment %}
               <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle shadow-4"style="width: 40px;" alt="Avatar" />
             </div>
           </div>
       </nav>
-    {% block content %}{% endblock %}
+    {% block content %}
+    
+    
+    
+    {% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>
 
+
+
+
+
+
+
+    {% comment %} 
     <footer class="text-center text-lg-start" style="background-color: white;">
       <div class="container d-flex justify-content-center py-5">
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: blue;">
@@ -77,11 +86,5 @@
         © 2024 Copyright:
         <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
       </div>
-    </footer>
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </footer> 
+    {% endcomment %}
